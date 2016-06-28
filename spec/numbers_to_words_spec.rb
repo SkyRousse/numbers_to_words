@@ -5,4 +5,10 @@ describe('Fixnum#numbers_to_words') do
   it('returns a word for a single digit number') do
     expect(1.numbers_to_words()).to(eq("one"))
   end
+  it('returns a word for a number between 10 and twenty') do
+    expect(13.numbers_to_words()).to(eq("thirteen"))
+  end
+  it('returns a word for a number between 21 and 99') do
+    expect(30.numbers_to_words()).to(eq("thirty"))
+  end
 end
