@@ -13,24 +13,30 @@ describe('String#numbers_to_words') do
     expect("34".numbers_to_words()).to(eq("thirty four"))
   end
   it('returns a word for a number between 100 and 999') do
-    expect("134".numbers_to_words()).to(eq("one hundred and thirty four"))
+    expect("134".numbers_to_words()).to(eq("one hundred thirty four"))
   end
   it('returns a word for a number between 100 and 999') do
-    expect("113".numbers_to_words()).to(eq("one hundred and thirteen"))
+    expect("113".numbers_to_words()).to(eq("one hundred thirteen"))
   end
   it('returns a word for a number between 100 and 999') do
-    expect("109".numbers_to_words()).to(eq("one hundred and nine"))
+    expect("109".numbers_to_words()).to(eq("one hundred nine"))
   end
   it('returns a word for a number between 1000 and 9999') do
-    expect("1199".numbers_to_words()).to(eq("one thousand one hundred and ninety nine"))
+    expect("1199".numbers_to_words()).to(eq("one thousand one hundred ninety nine"))
   end
-  it('returns a word for a number between 10000 and 99999') do
-    expect("31199".numbers_to_words()).to(eq("thirty one thousand one hundred and ninety nine"))
+  it('returns a word for a number between 10,000 and 99,999') do
+    expect("31199".numbers_to_words()).to(eq("thirty one thousand one hundred ninety nine"))
   end
-  it('returns a word for a number between 100000 and 999999') do
-    expect("331199".numbers_to_words()).to(eq("three hundred and thirty one thousand one hundred and ninety nine"))
+  it('returns a word for a number between 100,000 and 999,999') do
+    expect("331199".numbers_to_words()).to(eq("three hundred thirty one thousand one hundred ninety nine"))
   end
-  it('returns a word for a number between 1000000 and 9999999') do
-    expect("3331199".numbers_to_words()).to(eq("three million three hundred and thirty one thousand one hundred and ninety nine"))
+  it('returns a word for a number between 1,000,000 and 999,999,999') do
+    expect("3331199".numbers_to_words()).to(eq("three million three hundred thirty one thousand one hundred ninety nine"))
+  end
+  it('returns a word for a number between 1,000,000,000 and 999,999,999,999') do
+    expect("3331199000".numbers_to_words()).to(eq("three billion three hundred thirty one million one hundred ninety nine thousand"))
+  end
+  it('returns a word for a number between 1,000,000,000 and 999,999,999,999') do
+    expect("3331199100".numbers_to_words()).to(eq("three billion three hundred thirty one million one hundred ninety nine thousand one hundred"))
   end
 end

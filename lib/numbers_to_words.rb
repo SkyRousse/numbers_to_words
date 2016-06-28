@@ -20,11 +20,11 @@ class String
       numbers = group.scan(/./)
       if numbers.at(0).to_i.>(0)
         group_result.push(one_to_nine.fetch(numbers.at(0)))
-        group_result.push("hundred and")
+        group_result.push("hundred")
         numbers.shift()
         numbers.unshift("0")
       end
-      if numbers.at(0).to_i.eql?(0).&numbers.at(1).to_i.eql?(0)
+      if numbers.at(0).to_i.eql?(0).&numbers.at(1).to_i.eql?(0).&numbers.at(2).to_i.>(0)
         group_result.push(one_to_nine.fetch(numbers.at(2)))
       elsif numbers.at(0).to_i.eql?(0).&numbers.at(1).to_i.>(1)
         group_result.push(twenty_to_ninety.fetch(numbers.at(1)))
@@ -32,14 +32,21 @@ class String
       elsif numbers.at(0).to_i.eql?(0).&numbers.at(1).to_i.eql?(1)
         group_result.push(ten_to_nineteen.fetch(numbers.at(1).concat(numbers.at(2))))
       end
-      grouped_result = group_result.join(" ")
-      result.push(grouped_result)
+      result_length = group_result.length
+      if result_length.>(0)
+        grouped_result = group_result.join(" ")
+        result.push(grouped_result)
+      end
     end
     if (4..6).include?(digits)
       result.insert(1, "thousand")
     elsif (7..9).include?(digits)
       result.insert(1, "million")
       result.insert(3, "thousand")
+    elsif (10..12).include?(digits)
+      result.insert(1, "billion")
+      result.insert(3, "million")
+      result.insert(5, "thousand")
     end
     result.join(" ")
   end
