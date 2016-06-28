@@ -11,4 +11,13 @@ describe('String#numbers_to_words') do
   it('returns a word for a number between 21 and 99') do
     expect("34".numbers_to_words()).to(eq("thirty four"))
   end
+  it('returns a word for a number between 100 and 999') do
+    expect("134".numbers_to_words()).to(eq("one hundred and thirty four"))
+  end
+  it('returns a word for a number between 100 and 999') do
+    expect("113".numbers_to_words()).to(eq("one hundred and thirteen"))
+  end
+  it('returns a word for a number between 100 and 999') do
+    expect("109".numbers_to_words()).to(eq("one hundred and nine"))
+  end
 end

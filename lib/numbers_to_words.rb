@@ -13,6 +13,17 @@ class String
     elsif digits.eql?(2).&self.to_i.>(19)
       result.push(twenty_to_ninety.fetch(numbers.at(0)))
       result.push(one_to_nine.fetch(numbers.at(1)))
+    elsif digits.eql?(3)
+      result.push(one_to_nine.fetch(numbers.at(0)))
+      result.push("hundred and")
+        if numbers.at(1).to_i.>(1)
+          result.push(twenty_to_ninety.fetch(numbers.at(1)))
+          result.push(one_to_nine.fetch(numbers.at(2)))
+        elsif numbers.at(1).to_i.eql?(1)
+          result.push(ten_to_nineteen.fetch(numbers.at(1).concat(numbers.at(2))))
+        else
+          result.push(one_to_nine.fetch(numbers.at(2)))
+        end
     end
     result.join(" ")
   end
