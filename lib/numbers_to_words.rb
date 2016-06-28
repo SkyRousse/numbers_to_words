@@ -47,6 +47,11 @@ class String
       result.insert(1, "billion")
       result.insert(3, "million")
       result.insert(5, "thousand")
+    elsif (13..15).include?(digits)
+      result.insert(1, "trillion")
+      result.insert(3, "billion")
+      result.insert(5, "million")
+      result.insert(7, "thousand")
     end
     result.join(" ")
   end

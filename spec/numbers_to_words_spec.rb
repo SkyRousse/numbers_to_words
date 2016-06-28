@@ -39,4 +39,7 @@ describe('String#numbers_to_words') do
   it('returns a word for a number between 1,000,000,000 and 999,999,999,999') do
     expect("3331199100".numbers_to_words()).to(eq("three billion three hundred thirty one million one hundred ninety nine thousand one hundred"))
   end
+  it('returns a word for a number between 1,000,000,000,000 and 999,999,999,999,999') do
+    expect("3331199100000".numbers_to_words()).to(eq("three trillion three hundred thirty one billion one hundred ninety nine million one hundred thousand"))
+  end
 end
